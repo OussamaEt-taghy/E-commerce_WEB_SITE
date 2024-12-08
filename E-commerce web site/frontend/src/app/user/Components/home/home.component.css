@@ -1,0 +1,8 @@
+.body {
+    background-image: url('../../../../assets/istockphoto-1344688156-612x612.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 600px; 
+    position: relative;
+}

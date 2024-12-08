@@ -1,0 +1,56 @@
+<mat-toolbar class="mat-elevation-z8" >
+  <div class="menu-buttons">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+      <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+      <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+    </button>
+  </div>
+  
+  <div class="logo">Electro Magick</div>
+  
+</mat-toolbar>
+  
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+      <img
+        class="avatar mat-elevation-z8"
+        src="../../assets/IMG-20230613-WA0046.jpg"
+      />
+  
+      <h4 class="name">ET-TAGHY OUSSAMA</h4>
+      <p class="designation">Software Engineer</p>
+  
+      <mat-divider></mat-divider>
+  
+      <button mat-button class="menu-button" [routerLink]="['/admin', { outlets: { adminOutlet: ['dashboard'] } }]">
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+      </button>
+      <button mat-button class="menu-button" [routerLink]="['/admin', { outlets: { adminOutlet: ['users'] } }]">
+        <mat-icon>person</mat-icon>
+        <span>Users</span>
+      </button>
+      <button mat-button class="menu-button" [routerLink]="['/admin', { outlets: { adminOutlet: ['categories'] } }]">
+        <mat-icon>category</mat-icon>
+        <span>Categories</span>
+      </button>
+      <button mat-button class="menu-button" [routerLink]="['/admin', { outlets: { adminOutlet: ['product'] } }]">
+        <mat-icon>shopping_cart</mat-icon>
+        <span>Products</span>
+      </button>
+      <button mat-button class="menu-button" [routerLink]="['/admin', { outlets: { adminOutlet: ['orders'] } }]">
+        <mat-icon>assignment</mat-icon>
+        <span>Orders</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-button class="menu-button" id="logout" routerLink="active" (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="content mat-elevation-z8">
+        <router-outlet name="adminOutlet"></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
